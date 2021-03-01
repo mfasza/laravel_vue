@@ -41,7 +41,7 @@
                 add: function(){
                     if (this.input_text.trim()) {
                         this.$http.post('/api/user/store/', {name: this.input_text}).then(response => {
-                            this.users.push({'name':this.input_text});
+                            this.users.push({id: response.body.data.id, name:this.input_text});
                             this.input_text = null;
                         });
                     }
